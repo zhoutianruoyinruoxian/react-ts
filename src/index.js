@@ -1,12 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import route from './routes/route-index.jsx';
+import {register} from './serviceWorker';
+// import 'antd/dist/antd.css';
+// import './style/index.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import store, { reducers } from 'src/redux';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn'); // 设置moment全局语言
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// const Router = route();
+// ReactDOM.render(
+//   <Provider store={store}>
+//     {Router}
+//   </Provider>
+//   , document.getElementById('root'));
+
+// if (process.env.NODE_ENV !== 'production' && module.hot) {
+//   module.hot.accept('./redux', () => store.replaceReducer(reducers));
+// }
+
+const renderApp = () => {
+  const Router = route();
+  ReactDOM.render(
+    <Provider store={store}>
+      {Router}
+    </Provider>,
+    document.getElementById('root')
+  );
+};
+// if (process.env.NODE_ENV !== 'production' && module.hot) {
+//   module.hot.accept('./routes/route-index.jsx', renderApp);
+// }
+renderApp();
+register();
