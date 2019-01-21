@@ -1,0 +1,25 @@
+.home {
+  background-color: #eee;
+  .clearfix {
+    white-space: nowrap;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      color: #fff;
+      border-bottom: 1px dashed #eee;
+      $font-size: 14px;
+      font-size: $font-size;
+    }
+    .active {
+      color: red;
+      ~ li {
+        color: pink;
+        &.done {
+          color: blue;
+        }
+      }
+    }
+  }
+}
