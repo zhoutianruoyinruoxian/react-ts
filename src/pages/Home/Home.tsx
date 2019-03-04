@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import 'src/redux';
 import './style.scss';
 import { connect } from 'react-redux';
-import { mapMutations } from 'src/redux';
+import { mapMutations } from '../../redux';
 
 const mapStateToProps = (state, router) => {
   return {
@@ -19,8 +19,7 @@ const mapDispatchToProps = () => {
 // const mapDispatchToProps2 = mapDispatchToPropsInit((mutations)=>{
 
 // });
-@connect(mapStateToProps, mapDispatchToProps)
-export default class Home extends Component {
+ class Home extends React.Component<any,any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +29,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-
+    console.log(this.props)
   }
 
   click = () => {
@@ -50,3 +49,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

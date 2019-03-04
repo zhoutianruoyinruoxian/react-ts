@@ -2,8 +2,11 @@ import * as React from 'react';
 
 import test from './test';
 
-console.log(test('444'), 333)
+// console.log(test(222), 4444);
 const { useState, useEffect } = React;
+
+let user = { id: 1, name: 'linkFly' }
+
 
 export default function () {
   // Declare a new state variable, which we'll call "count"

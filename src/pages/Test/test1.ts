@@ -1,16 +1,34 @@
-const title: number = 222;
-interface Fooprop {
-  <Title>(title: Title): any;
-}
-const test:Fooprop = (title) => {
-  if (typeof title === 'number') {
-    return title.toString.call(111) + '1';
-  }
-  if (typeof title === 'string') {
-    return { title };
-  }
-  throw new Error(`title should be 'number' or 'string`);
-}
 
+  export interface StringValidator {
+    isAcceptable(s: string): boolean;
+  }
 
-export default test(title);
+  let lettersRegexp = /^[A-Za-z]+$/;
+  let numberRegexp = /^\d+$/;
+
+  export class LetterOnlyValidator implements StringValidator {
+    isAcceptable(s: string) {
+      return lettersRegexp.test(s);
+    }
+  }
+
+  export class ZipCodeValidator implements StringValidator {
+    isAcceptable = (s: string) => s.length === 5 && numberRegexp.test(s);
+  }
+
+  let strings = ['hello', '98052', '101'];
+
+  let validators: {
+    [s: string]: StringValidator;
+  } = {};
+
+  validators['ZIP code'] = new ZipCodeValidator();
+  validators['Letters only'] = new LetterOnlyValidator();
+
+  for (let s of strings) {
+    for (let name in validators) {
+      let isMatch = validators[name].isAcceptable(s);
+      console.log(`'${s} ${isMatch ? 'matches' : 'does not match'} ${name}`)
+    }
+  }
+

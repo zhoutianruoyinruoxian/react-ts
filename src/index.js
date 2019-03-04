@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import route from './routes/route-index.jsx';
 import {register} from './serviceWorker';
-// import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';
 // import './style/index.scss';
 
 import store, { reducers } from 'src/redux';

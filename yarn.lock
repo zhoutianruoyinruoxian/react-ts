@@ -853,6 +853,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-redux@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.npmjs.org/@types/react-redux/-/react-redux-7.0.1.tgz#9dd2503be7a9861c5a092bf1c5050b7ade4dc62e"
+  dependencies:
+    "@types/react" "*"
+    redux "^4.0.0"
+
 "@types/react@*", "@types/react@^16.7.20":
   version "16.7.20"
   resolved "https://registry.npmjs.org/@types/react/-/react-16.7.20.tgz#13ae752c012710d0fa800985ca809814b51d3b58"
@@ -7912,7 +7919,7 @@ redux-small@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/redux-small/-/redux-small-1.0.8.tgz#3059b2053fc1ff9af4b85c1e62ed70147dece0a5"
 
-redux@^4.0.1:
+redux@^4.0.0, redux@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
   dependencies:
