@@ -32,6 +32,10 @@ const mapDispatchToProps = () => {
     console.log(this.props)
   }
 
+  componentWillReceiveProps(){
+console.log(45454545)
+  }
+
   click = () => {
     this.props.changeTitle('4444');
   }

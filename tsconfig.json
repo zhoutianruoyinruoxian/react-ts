@@ -1,15 +1,41 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es2018",
     "jsx": "react",
     "experimentalDecorators": true,
     "allowUnreachableCode": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "src": [
+        "./src"
+      ],
+      "api": [
+        "./src/api"
+      ],
+      "@": [
+        "./src/components"
+      ],
+      "pages": [
+        "./src/pages"
+      ],
+      "variable": [
+        "./src/style/variable.scss"
+      ]
+    }
   },
   "include": [
     "./src/**/*"
+  ],
+  "lib": [
+    "ES5",
+    "ES2015",
+    "ES2016",
+    "ES2017",
+    "ES2018",
+    "node"
   ]
 }

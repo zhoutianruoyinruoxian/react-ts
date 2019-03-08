@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import test from './test';
 
-// console.log(test(222), 4444);
+console.log(test(222), 4444);
 const { useState, useEffect } = React;
 
 let user = { id: 1, name: 'linkFly' }

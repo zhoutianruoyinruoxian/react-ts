@@ -14,5 +14,5 @@ declare module '*.bmp'
 declare module '*.tiff'
 
 
-declare module '*.js'
-declare module '*.ts'
+// declare module '*.js'
+// declare module '*.ts'
