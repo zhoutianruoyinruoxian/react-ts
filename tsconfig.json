@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
-    "target": "es2018",
+    "target": "ESNext",
     "jsx": "react",
     "experimentalDecorators": true,
     "allowUnreachableCode": true,

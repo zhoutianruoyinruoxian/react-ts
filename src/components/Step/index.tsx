@@ -5,25 +5,30 @@
  */
 import React from 'react';
 import './style.scss';
-export default (props) => {
-  const { className, data, step = '0' } = props;
+
+interface StepProps {
+  className?: string;
+  style?: React.CSSProperties;
+  data?: Array<string>;
+  step?: string | number;
+}
+
+export default (props: StepProps) => {
+  const { className, data, step = '0', ...args } = props;
   const num = data.length;
   return (
-    <div className={`step-component ${className || ''}`}>
+    <div className={`step-component ${className || ''}`} {...args}>
       <div className="step-section">
         {data.map((item, index) => (
           <div
             key={index}
-            className={`step-group ${step == index ? 'active' : ''}`}
+            className={`step-group${step == index ? ' active' : ''}`}
             style={{
               width: `${100 / num}%`,
               zIndex: num - index,
             }}
           >
-            <div className="step-content">
-              {item}
-              <div className="step-arrow"></div>
-            </div>
+            {item}
           </div>
         ))}
       </div>

@@ -15,12 +15,11 @@
       height: inherit;
       float: left;
       position: relative;
-      .step-content {
-        height: inherit;
-        background-color: $commonBC;
-        text-align: center;
-      }
-      .step-arrow {
+      height: inherit;
+      background-color: $commonBC;
+      text-align: center;
+      &::after {
+        content: "";
         height: inherit;
         position: absolute;
         width: $arrowWidth;
@@ -31,10 +30,8 @@
         border-left: $arrowWidth solid $commonBC;
       }
       &.active {
-        .step-content {
-          background-color: $activeBC;
-        }
-        .step-arrow {
+        background-color: $activeBC;
+        &::after {
           border-left-color: $activeBC;
         }
       }
