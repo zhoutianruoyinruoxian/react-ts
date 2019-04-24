@@ -1,5 +1,5 @@
 /**
- * `该组件为受控组件,需要在当前组件中执行format操作必须在state中控制value`
+ * 
  * @desc 将input输出的字符串转为数字(不能转数字就原样输出)(格式化成1,000,000格式)
  * `该组件目前无法输入与symbol相同的字符，需要修改（要么无法输入任何字符，要么能输入任何字符）`
  */
@@ -23,6 +23,16 @@ interface InputFormatState {
 }
 
 export default class InputFormat extends Component<InputFormatProps, InputFormatState>{
+
+  static getDerivedStateFromProps(nextProps: InputProps) {
+    if ('value' in nextProps) {//受控状态根据props.value控制组件的state.value
+      return {
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
+
   constructor(props: InputFormatProps) {
     super(props);
     const value = 'value' in props ? props.value : props.defaultValue;//针对组件是否受控选择初始值
@@ -31,13 +41,14 @@ export default class InputFormat extends Component<InputFormatProps, InputFormat
     }
   }
 
-  componentWillReceiveProps(nextProps: InputFormatProps) {
-    if (nextProps.value !== this.props.value) {//受控状态根据props.value控制组件的state.value
-      this.setState({
-        value: nextProps.value,
-      })
-    }
-  }
+  // 已经被getDerivedStateFromProps新方法替代
+  // componentWillReceiveProps(nextProps: InputFormatProps) {
+  //   if (nextProps.value !== this.props.value) {//受控状态根据props.value控制组件的state.value
+  //     this.setState({
+  //       value: nextProps.value,
+  //     })
+  //   }
+  // }
 
   checkParams = (props = this.props) => {
     if (!props.format) return false;
@@ -47,7 +58,7 @@ export default class InputFormat extends Component<InputFormatProps, InputFormat
   }
 
 
-  onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
     if (this.checkParams()) {
       const { symbol } = this.props.format;
@@ -91,7 +102,7 @@ export default class InputFormat extends Component<InputFormatProps, InputFormat
         className={`input-format ${className || ''}`}
         value={this.format(value)}
         {...maxLengthProps}
-        onChange={this.onChange}
+        onChange={this.handleChange}
       />
     )
   }
