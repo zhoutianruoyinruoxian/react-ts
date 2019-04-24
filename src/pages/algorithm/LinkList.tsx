@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import one from '../../utils/algorithm/one';
 // import two from '../../utils/algorithm/two';
-import LinkedList from '../../utils/dataStructure/linkList.js';
+import LinkedList from 'src/library/dataStructure/linkList';
 
 export default class Home extends React.Component {
   render() {

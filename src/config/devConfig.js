@@ -1,4 +1,4 @@
-import { urlParse, isPlainObject } from 'src/utils';
+import { urlParse, isPlainObject } from 'src/library';
 import { PRODUCTION } from 'src/constant/main';
 
 export default function devCheckLogin(history) {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BinarySearchTree from '../../utils/dataStructure/BinarySearchTree';
+import BinarySearchTree from 'src/library/dataStructure/BinarySearchTree';
 
 export default function (props) {
   const tree = new BinarySearchTree();

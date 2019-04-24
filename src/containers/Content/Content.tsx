@@ -3,7 +3,7 @@ import './style.scss';
 
 interface InitProps {
   className?: string;
-  style:React.CSSProperties;
+  style?:React.CSSProperties;
   title?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;

@@ -12,6 +12,8 @@ import SelectSearch from 'pages/ComponentTest/SelectSearch/SelectSearch';
 import InputFormat from 'pages/ComponentTest/InputFormat/InputFormat';
 import Step from 'pages/ComponentTest/Step/Step';
 
+import ObserverMode from 'pages/DesignPatterns/ObserverMode';
+
 
 const supportsHistory = 'pushState' in window.history;
 export default (store) => {
@@ -29,6 +31,8 @@ export default (store) => {
           <Route exact path="/ComponentTest/SelectSearch" component={SelectSearch} />
           <Route exact path="/ComponentTest/InputFormat" component={InputFormat} />
           <Route exact path="/ComponentTest/Step" component={Step} />
+          <Redirect exact path="/DesignPatterns" to="/DesignPatterns/ObserverMode" />
+          <Route exact path="/DesignPatterns/ObserverMode" component={ObserverMode} />
           <Route component={() => (<div>not fond</div>)} />
         </Switch>
       </App>

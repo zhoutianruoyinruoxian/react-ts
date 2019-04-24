@@ -20,7 +20,6 @@ export default class InputFormatTest extends Component {
   }
 
   onChange: SelectProps['onChange'] = (value) => {
-    console.log(value, 11)
     this.setState({
       value,
     })

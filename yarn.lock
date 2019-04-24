@@ -853,6 +853,12 @@
   dependencies:
     axios "*"
 
+"@types/echarts@^4.1.8":
+  version "4.1.8"
+  resolved "https://registry.npmjs.org/@types/echarts/-/echarts-4.1.8.tgz#ee0b3e53606fb44680c32b1426f5bf44c8120e5a"
+  dependencies:
+    "@types/zrender" "*"
+
 "@types/history@*":
   version "4.7.2"
   resolved "https://registry.npmjs.org/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
@@ -930,6 +936,10 @@
 "@types/tapable@1.0.2":
   version "1.0.2"
   resolved "https://registry.npmjs.org/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
+
+"@types/zrender@*":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@types/zrender/-/zrender-4.0.0.tgz#a6806f12ec4eccaaebd9b0d816f049aca6188fbd"
 
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"

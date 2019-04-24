@@ -13,6 +13,17 @@ interface MenuListItem {
 
 const menuList: Array<MenuListItem> = [
   {
+    path: '/DesignPatterns',
+    text: '设计模式',
+    icon: 'team',
+    children: [
+      {
+        path: '/ObserverMode',
+        text: '观察者模式',
+      },
+    ]
+  },
+  {
     path: '/ComponentTest',
     text: '组件测试',
     icon: 'desktop',
@@ -35,11 +46,6 @@ const menuList: Array<MenuListItem> = [
       }
     ]
   },
-  // {
-  //   path: '/RoleManagement',
-  //   text: '角色管理',
-  //   icon: 'team',
-  // },
   // {
   //   path: '/AuthorityManagement',
   //   text: '权限管理',
