@@ -5,7 +5,7 @@ import _assert from './publicFunction/assert';
  * @param {any} key 
  */
 function necessary(key: any) {
-  _assert(typeof key !== undefined, `param '${key}' is required but not found!`);
+  _assert(typeof key !== undefined, `paramter '${key}' is required but not found!`);
 }
 
 /**
@@ -13,7 +13,7 @@ function necessary(key: any) {
  * @param {any} fun 
  */
 function isFunction(fun: any) {
-  _assert(typeof fun === 'function', `param '${fun}' should be 'function' but get '${typeof fun}'!`);
+  _assert(typeof fun === 'function', `paramter '${fun}' should be 'function' but get '${typeof fun}'!`);
 }
 
 function xor(a: boolean, b: boolean) {

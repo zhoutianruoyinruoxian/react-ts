@@ -14,6 +14,7 @@ import Step from 'pages/ComponentTest/Step/Step';
 
 import ObserverMode from 'pages/DesignPatterns/ObserverMode';
 
+import Graph from 'pages/DataStructure/Graph';
 
 const supportsHistory = 'pushState' in window.history;
 export default (store) => {
@@ -26,16 +27,32 @@ export default (store) => {
           <Route exact path="/test" component={Test} />
           <Route path="/algorithm" component={algorithm} />
           <Route exact path="/test1" component={Test1} />
+
           <Redirect exact path="/ComponentTest" to="/ComponentTest/TableX" />
           <Route exact path="/ComponentTest/TableX" component={TableX} />
           <Route exact path="/ComponentTest/SelectSearch" component={SelectSearch} />
           <Route exact path="/ComponentTest/InputFormat" component={InputFormat} />
           <Route exact path="/ComponentTest/Step" component={Step} />
+
           <Redirect exact path="/DesignPatterns" to="/DesignPatterns/ObserverMode" />
           <Route exact path="/DesignPatterns/ObserverMode" component={ObserverMode} />
+
+          <Redirect exact path="/DataStructure" to="/DataStructure/Graph" />
+          <Route exact path="/DataStructure/Graph" component={Graph} />
+
           <Route component={() => (<div>not fond</div>)} />
         </Switch>
       </App>
     </BrowserRouter>
   );
 };
+
+
+
+
+// import('src/pages/FormEditor/index.tsx').then(component => {
+//   if (!component.default) throw new Error(`Attempted import error: '${componentUrl}' does not contain a default export.`)
+//   routList.push(
+//     <Route exact component={component.default} />
+//   );
+// });

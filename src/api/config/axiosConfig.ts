@@ -1,8 +1,17 @@
 import { message } from 'antd';
-import { AxiosResponse, AxiosError } from 'axios';
+import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
+import api from '../index';
 
+export interface ReturnDataType {
+  code: string;
+  message: string;
+  result: any;
+}
 
-export const defaultOption = {
+interface DefaultOption extends AxiosRequestConfig {
+  errorHandling: boolean
+}
+export const defaultOption: DefaultOption = {
   timeout: 10000,
   errorHandling: true,
   validateStatus(status: number) {
@@ -11,19 +20,18 @@ export const defaultOption = {
   headers: { 'token': localStorage.token || '' }
 };
 
-
-export const didRequest = (res: AxiosResponse) => {
+export const didRequest = (res: AxiosResponse<ReturnDataType>) => {
   // 200 and type = ok
-  if ((res.status >= 200 && res.status < 300) && (res.data.code === 200)) {
+  if ((res.status >= 200 && res.status < 300) && (res.data.code === '0')) {
     return res.data;
   }
 
-  if (res.data.code === 302) {
-    toLogin(res);
+  if (res.status === 203) {
+    toLogin();
     return Promise.reject(res);
   }
 
-  if (res.data.code === 403) {
+  if (res.data.code === '403') {
     noPermission();
     return Promise.reject(res);
   }
@@ -32,10 +40,10 @@ export const didRequest = (res: AxiosResponse) => {
   return Promise.reject(res);
 };
 
-export function didRequestError(error) {
+export function didRequestError(error: AxiosError) {
   const { config } = error;
   const res = error.response;
-  if (config.errorHandling === false) {
+  if ((config as DefaultOption).errorHandling === false) {
     return error;
   }
 
@@ -51,8 +59,10 @@ export function didRequestError(error) {
   return Promise.reject(error);
 }
 
-function toLogin(res: AxiosResponse) {
-  location.href = res.data.data.url;
+function toLogin() {
+  api.login({ returnUrl: location.href }).then(res => {
+    location.href = res.result;
+  })
 }
 
 function noPermission() {

@@ -53,7 +53,7 @@ export default class ModalX extends PureComponent<Iprops, Istate>{
 
   onOk = async (e: React.MouseEvent<any, MouseEvent>) => {
     const { onOk } = this.props;
-    onOk && await onOk(e);
+    onOk && await onOk(e);//如果ok操作失败（不如ajax请求失败，则返回promise.reject状态，后面的步骤就不会执行）
     this.setState({
       visible: false,
     })

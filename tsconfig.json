@@ -10,6 +10,7 @@
     "allowUnreachableCode": true,
     "allowJs": true,
     "baseUrl": ".",
+    "locale": "zh-cn",
     "paths": {
       "src": [
         "./src"
@@ -20,23 +21,26 @@
       "@": [
         "./src/components"
       ],
+      "lib": [
+        "./src/library"
+      ],
       "pages": [
         "./src/pages"
       ],
       "variable": [
         "./src/style/variable.scss"
       ]
-    }
+    },
+    "lib": [
+      "es5",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "dom"
+    ]
   },
   "include": [
     "./src/**/*"
   ],
-  "lib": [
-    "ES5",
-    "ES2015",
-    "ES2016",
-    "ES2017",
-    "ES2018",
-    "node"
-  ]
 }

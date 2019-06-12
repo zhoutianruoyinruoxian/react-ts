@@ -3,7 +3,7 @@ export default {
     name: 'name',
   },
   mutations: {
-    changeName(dispatch, name) {
+    changeName(dispatch, getState, name) {
       dispatch({ name });
     },
   },

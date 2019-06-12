@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import reducerCreater from './reducerCreater';
 import mutationCreater from './mutationCreater';
 import logger from './logger';
@@ -9,8 +9,10 @@ const defaultOption = {
   middleware: [],
 };
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const storeCreater = (modules, option = defaultOption) => {
-  
+
   // 最好是在这里对modules做一次深拷贝
 
   if (!modules || Object.prototype.toString.call(modules) !== '[object Object]') {
@@ -23,7 +25,10 @@ const storeCreater = (modules, option = defaultOption) => {
   }
 
   const reducers = reducerCreater(modules);
-  const store = createStore(reducers, applyMiddleware(...middleware));
+  const store = createStore(
+    reducers,
+    composeEnhancer(applyMiddleware(...middleware)),
+  );
   const mapMutations = mutationCreater(store, modules);
   return {
     store,

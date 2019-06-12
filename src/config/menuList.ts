@@ -46,11 +46,17 @@ const menuList: Array<MenuListItem> = [
       }
     ]
   },
-  // {
-  //   path: '/AuthorityManagement',
-  //   text: '权限管理',
-  //   icon: 'solution',
-  // },
+  {
+    path: '/DataStructure',
+    text: '数据结构',
+    icon: 'solution',
+    children: [
+      {
+        path: '/Graph',
+        text: '图',
+      },
+    ]
+  },
 ];
 
 export default menuList;

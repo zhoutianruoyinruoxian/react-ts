@@ -6,7 +6,7 @@ const mutationCreater = ({ dispatch, getState }, modules) => {
     mutationList[o] = {};
     Object.keys(mutations).forEach(m => {
       mutationList[o][m] = (...args) => {
-        const setState = _dispatch(dispatch, _module.type);
+        const setState = _dispatch(dispatch, _module.reducerName, m);
         mutations[m](setState, getState, ...args);
       };
     });
@@ -14,8 +14,8 @@ const mutationCreater = ({ dispatch, getState }, modules) => {
   return mutationList;
 };
 
-const _dispatch = (dispatch, type) => (data) => dispatch(actionCreater(type, data));
+const _dispatch = (dispatch, reducerName, type) => (data) => dispatch(actionCreater(reducerName, type, data));
 
-const actionCreater = (type, data) => ({ type, data });
+const actionCreater = (reducerName, type, data) => ({ reducerName, type, data });
 
 export default mutationCreater;

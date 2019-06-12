@@ -1,3 +1,3 @@
-export default function necessary(param: any) {
-  if (!param) throw new Error(`param '${param}' is required but not found!`);
+export default function necessary(param: string) {
+  if (!param) throw new Error(`paramter '${param}' is required but not found!`);
 };

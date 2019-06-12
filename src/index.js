@@ -25,7 +25,7 @@ moment.locale('zh-cn'); // 设置moment全局语言
 // }
 
 const renderApp = () => {
-  const Router = route();
+  const Router = route(store);
   ReactDOM.render(
     <Provider store={store}>
       <LocaleProvider locale={zhCN}>

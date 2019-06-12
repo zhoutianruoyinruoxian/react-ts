@@ -20,7 +20,7 @@ class Echarts extends Component<EchartsProps, EchartsState> {
   timeout: NodeJS.Timeout;
 
   static defaultProps: EchartsProps = {
-    notMerge: true,//是否不合并option，见官方文档setOption的api说明，原理还不是很清楚，暂不知是浅合并还是深合并；
+    notMerge: true,//是否不合并option，见官方文档setOption的api说明，原理还不是很清楚，行为有点诡异，暂不知是浅合并还是深合并；
     /**
      * @param showInitialOption 是否展示初始值(第一个props.option)，默认值:false
      * @desc 初始化的时候是否设置第一个option，一般情况下option数据由后端返回，此时初始值是空，

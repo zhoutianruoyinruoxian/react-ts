@@ -268,6 +268,7 @@ module.exports = function (webpackEnv) {
         'src': paths.appSrc,
         'api': path.resolve(__dirname, '../src/api'),
         '@': path.resolve(__dirname, '../src/components'),
+        'lib': path.resolve(__dirname, '../src/library'),
         'pages': path.resolve(__dirname, '../src/pages'),
         'variable': path.resolve(__dirname, '../src/style/variable.scss'),
       },
