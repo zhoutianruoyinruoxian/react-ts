@@ -11,23 +11,23 @@ export default class Derived extends Component<any> {
   //   return null;
   // }
 
-  a=()=>{
+  a = () => {
     this.forceUpdate()
   }
   render() {
     const { count } = this.props;
     return (
       <div>{count}
-      
-      <input placeholder="aaa"
-        prefix={'sss'}
-        //  value={this.state.value}
-         onChange={(e) => {console.log(e.nativeEvent);this.setState({ value: e.target.value })}} 
-         /> 
-         <Input placeholder="aaa"
-         //  value={this.state.value}
-          onChange={(e) => {console.log(e.nativeEvent);this.setState({ value: e.target.value })}} 
-          />
+
+        <input placeholder="aaa"
+          prefix={'sss'}
+          //  value={this.state.value}
+          onChange={(e) => { console.log(e.nativeEvent); this.setState({ value: e.target.value }) }}
+        />
+        <Input placeholder="aaa"
+          //  value={this.state.value}
+          onChange={(e) => { console.log(e.nativeEvent); this.setState({ value: e.target.value }) }}
+        />
       </div>
     );
   }

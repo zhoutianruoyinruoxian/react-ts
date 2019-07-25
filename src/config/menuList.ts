@@ -43,6 +43,10 @@ const menuList: Array<MenuListItem> = [
       {
         path: '/Step',
         text: 'Step',
+      },
+      {
+        path: '/Gantt',
+        text: '甘特图',
       }
     ]
   },

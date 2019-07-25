@@ -22,7 +22,7 @@ export const defaultOption: DefaultOption = {
 
 export const didRequest = (res: AxiosResponse<ReturnDataType>) => {
   // 200 and type = ok
-  if ((res.status >= 200 && res.status < 300) && (res.data.code === '0')) {
+  if ((res.status >= 200 && res.status < 300) && (res.data.code == '0')) {
     return res.data;
   }
 

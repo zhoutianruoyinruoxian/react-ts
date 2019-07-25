@@ -6,3 +6,4 @@ export { default as SelectSearchObj } from './SelectSearchObj';
 export { default as CheckboxX } from './CheckboxX/CheckboxX';
 export { default as InputFormat } from './InputFormat';
 export { default as Step } from './Step';
+export { default as Gantt } from './Gantt';

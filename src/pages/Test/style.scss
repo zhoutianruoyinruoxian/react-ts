@@ -1,0 +1,8 @@
+.ul{
+  li:first-child{
+    color:red;
+    &~li{
+      color:blue;
+    }
+  }
+}

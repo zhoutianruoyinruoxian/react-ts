@@ -12,6 +12,7 @@ interface EchartsProps extends BasePropsType {
   notMerge?: boolean;
   showInitialOption?: boolean;
 }
+
 interface EchartsState { }
 
 class Echarts extends Component<EchartsProps, EchartsState> {
@@ -35,11 +36,11 @@ class Echarts extends Component<EchartsProps, EchartsState> {
     const myChart = echarts.init(dom as HTMLDivElement);
     this.myChart = myChart;
     this.props.showInitialOption && this.myChart.setOption(this.props.option);
-    window.addEventListener('resize', this.setOption);
+    window.addEventListener('resize', this.resizeEcharts);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.setOption)
+    window.removeEventListener('resize', this.resizeEcharts)
     this.myChart.dispose();
   }
 
@@ -50,7 +51,7 @@ class Echarts extends Component<EchartsProps, EchartsState> {
     }
   }
 
-  setOption = () => {
+  resizeEcharts = () => {
     this.timeout && clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.myChart.resize(), 300);
   };

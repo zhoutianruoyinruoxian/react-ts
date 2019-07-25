@@ -24,7 +24,7 @@ interface InputFormatState {
 
 export default class InputFormat extends Component<InputFormatProps, InputFormatState>{
 
-  static getDerivedStateFromProps(nextProps: InputProps) {
+  static getDerivedStateFromProps(nextProps: InputFormatProps) {
     if ('value' in nextProps) {//受控状态根据props.value控制组件的state.value
       return {
         value: nextProps.value,
@@ -35,7 +35,8 @@ export default class InputFormat extends Component<InputFormatProps, InputFormat
 
   constructor(props: InputFormatProps) {
     super(props);
-    const value = 'value' in props ? props.value : props.defaultValue;//针对组件是否受控选择初始值
+    // const value = 'value' in props ? props.value : props.defaultValue;//针对组件是否受控选择初始值
+    const value = Reflect.has(props, 'value') ? props.value : props.defaultValue;//针对组件是否受控选择初始值
     this.state = {
       value,
     }

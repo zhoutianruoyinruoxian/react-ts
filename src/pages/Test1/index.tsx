@@ -1,42 +1,88 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import './style.scss';
 
-export default function Test1(props) {
-  //   function a () {
-  //     for (let i = 0; i < 5; i++) {
-  //         setTimeout(function () {
-  //             console.log(i)
-  //         }, 0)
-  //         console.log(i)
-  //     }
-  // }
+export default class Test1 extends Component {
 
-  // a()
+  componentDidMount() {
+    abstract class Ani {
+      eat() {
+        console.log('eating...')
+      }
+      sound() { }
+    }
+    class Dog extends Ani {
+      sound() {
+        console.log('汪汪汪...')
+      }
+    }
+    class Cat extends Ani {
+      sound() {
+        console.log('miaomiaomiao...')
+      }
+    }
+    function aniSound(ani: Ani) {
+      ani.sound();
+    }
+    console.log(new Dog(), 111)
+    aniSound(new Dog())
+    aniSound(new Cat())
 
-  const id = {
-    'i': 0,
-    'have': 0,
-    'a': 0,
-    book: 0,
-    good: 0,
-  };
+    function A() {
+      this.a = 1
+    }
+    A.prototype.b = function () {
+      console.log(2)
+    }
 
-  function check(string, name) {
-    console.time(name);
-    const res = string.split(' ').every(o => id[o]);
-    console.log(res);
-    return res;
+    /**
+     * @desc 自定义一个`_new`方法，实现了`new`的功能
+     */
+    function _new(constructor: Function, ...arg: any) {
+      let target: any = {};
+      const result = constructor.apply(target, arg);
+      target.__proto__ = constructor.prototype;
+      return (typeof result === 'object' || typeof result === 'function') ? result : target;
+    }
 
-    console.timeEnd(name);
+    console.log(_new(A), 333)
+
+    function cloneDeep(obj: object) {
+      let target = {};
+      for (let i in obj) {
+        if (obj.hasOwnProperty(i)) {
+          if (Object.prototype.toString.call(obj[i]) === '[object Object]') {
+            target[i] = cloneDeep(obj[i])
+          } else {
+            target[i] = obj[i]
+          }
+        }
+      }
+      return target;
+    }
+    let demo: any = {
+      a: 1,
+      b: 2,
+      c: {
+        a: 1,
+        b: 2,
+        c: {
+          d: 4
+        }
+      }
+    }
+    const aaa = cloneDeep(demo);
+    demo.c.c = 5;
+    console.log(aaa, demo, 333)
   }
-  check('I have a book', 'short')
-  check('I have a book I have a book I have a book I have a book I have a book I have a book I have a book I have a book I have a book I have a book I have a book I have a book', 'long')
-  return (
-    <div className="bg">
 
-      {/* <div className="test1"> */}
-      {/* zhoutian
+  render() {
+    return (
+      <div className="bg" >
+
+        {/* <div className="test1"> */}
+        {/* zhoutian
     </div> */}
-    </div>
-  )
+      </div>
+    )
+  }
 }

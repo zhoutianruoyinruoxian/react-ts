@@ -51,7 +51,7 @@ function MainHeader(props: Iprops) {
   );
 
   return (
-    <Header tagName="header" className="header main-header">
+    <Header className="header main-header">
       <a className="logo" >
         {/* <img src={logo} width="140" height="48" /> */}
       </a>
