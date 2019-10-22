@@ -8,6 +8,7 @@ import Login from 'pages/Login/Login';
 import Test from 'pages/Test/index';
 
 import Test1 from 'pages/Test1/index';
+import FormTest from 'pages/FormTest/index';
 import algorithm from 'pages/algorithm';
 import TableX from 'pages/ComponentTest/TableX/TableX';
 import SelectSearch from 'pages/ComponentTest/SelectSearch/SelectSearch';
@@ -37,6 +38,7 @@ export default (store) => {
           <Route exact path="/test" component={Test} />
           <Route path="/algorithm" component={algorithm} />
           <Route exact path="/test1" component={Test1} />
+          <Route exact path="/formTest" component={FormTest} />
 
           <Redirect exact path="/ComponentTest" to="/ComponentTest/TableX" />
           <Route exact path="/ComponentTest/TableX" component={TableX} />

@@ -5,7 +5,7 @@ import './style.scss';
 import ProxyTest from './ProxyTest';
 
 const AsyncComponent = React.lazy(() => import('./AsyncComponent'));
-console.log(AsyncComponent, 444)
+// console.log(AsyncComponent, 444)
 export default function Test() {
   const InputEL = useRef(null);
   const [a, seta]: [any, any] = useState({ a: 1 });

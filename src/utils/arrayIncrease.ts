@@ -1,4 +1,4 @@
-export default function arrayIncrease(number) {
+export default function arrayIncrease(number: number) {
   return [...Array(number).keys()];
 }
 

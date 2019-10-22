@@ -10,7 +10,7 @@ interface Item {
 
 
 export default class TableXTest extends Component {
-
+  Table: any;
 
   render() {
     const columns: ColumnProps<Item>[] = [
@@ -41,6 +41,7 @@ export default class TableXTest extends Component {
       <TableX
         dataSource={list}
         columns={columns}
+        ref={refs => this.Table = refs}
       />
     )
   }
