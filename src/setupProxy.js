@@ -25,4 +25,19 @@ module.exports = function (app) {
         changeOrigin: true,
       })
   );
+  app.use(
+    proxy(
+      '/nest',
+      {
+        target: 'http://127.0.0.1:3000',
+        headers: {
+          Cookie: '',
+        },
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '/nest': '',
+        },
+      })
+  );
 };

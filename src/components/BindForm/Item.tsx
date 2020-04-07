@@ -38,6 +38,7 @@ class Item extends React.Component<ItemProps, any> {
       initialValue,
       rules,
     })(decorator);
+    console.log(args,333)
     return (
       <Form.Item
         label={label}

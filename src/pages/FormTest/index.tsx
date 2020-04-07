@@ -5,7 +5,7 @@ import { BindForm } from '@';
 const { Item } = BindForm;
 
 export default class FormTest extends Component<any, any> {
-  form: any = React.createRef();;
+  form: any = React.createRef();
   componentWillReceiveProps(nextProps) {
     console.log(nextProps.form, 2222)
   }
@@ -103,7 +103,7 @@ export default class FormTest extends Component<any, any> {
                 {/* </Item> */}
                 {/* </Col> */}
                 <Button onClick={() => this.add(form)}>添加</Button>
-                {/* <Button onClick={() => this.valid(form)}>验证</Button> */}
+                <Button onClick={() => this.valid(form)}>验证</Button>
                 {/* <Check /> */}
               </>
             )

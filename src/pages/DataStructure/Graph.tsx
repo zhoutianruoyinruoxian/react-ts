@@ -3,7 +3,7 @@ import Graph from 'src/library/dataStructure/Graph';
 export default class GraphPage extends Component {
   componentDidMount() {
 
-    var graph = new Graph<string>();
+    let graph = new Graph<string>();
     var myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']; //{7}
     for (var i = 0; i < myVertices.length; i++) { //{8}
       graph.addVertex(myVertices[i]);
@@ -27,7 +27,7 @@ export default class GraphPage extends Component {
   }
   render() {
     return (
-      null
+      <div></div>
     )
   }
 }

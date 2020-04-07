@@ -20,6 +20,8 @@ import ObserverMode from 'pages/DesignPatterns/ObserverMode';
 
 import Graph from 'pages/DataStructure/Graph';
 
+import NestTest from 'pages/Nest/Test';
+
 const supportsHistory = 'pushState' in window.history;
 
 
@@ -52,6 +54,9 @@ export default (store) => {
 
           <Redirect exact path="/DataStructure" to="/DataStructure/Graph" />
           <Route exact path="/DataStructure/Graph" component={Graph} />
+
+
+          <Route exact path="/Nest/Test" component={NestTest} />
 
           <Route component={() => (<div>not fond</div>)} />
         </Switch>

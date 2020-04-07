@@ -61,6 +61,17 @@ const menuList: Array<MenuListItem> = [
       },
     ]
   },
+  {
+    path: '/Nest',
+    text: 'nest',
+    icon: 'solution',
+    children: [
+      {
+        path: '/Test',
+        text: '测试',
+      },
+    ]
+  },
 ];
 
 export default menuList;
